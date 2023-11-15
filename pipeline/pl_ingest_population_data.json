@@ -1,0 +1,7 @@
+{
+	"name": "pl_ingest_population_data",
+	"properties": {
+		"concurrency": 1,
+		"annotations": []
+	}
+}
