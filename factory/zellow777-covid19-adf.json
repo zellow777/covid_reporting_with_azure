@@ -1,0 +1,9 @@
+{
+	"name": "zellow777-covid19-adf",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b0c38dbe-8240-4407-8468-dd4c6f1d0183",
+		"tenantId": "67ae8b72-ed21-40c6-8d15-bc8e234865c0"
+	}
+}
