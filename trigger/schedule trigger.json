@@ -1,0 +1,26 @@
+{
+	"name": "schedule trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2023-11-16T09:04:00",
+				"timeZone": "Central Europe Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						6,
+						18
+					]
+				}
+			}
+		}
+	}
+}
