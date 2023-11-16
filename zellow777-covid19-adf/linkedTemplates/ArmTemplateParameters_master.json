@@ -18,7 +18,7 @@
 			"value": "/subscriptions/2e981504-a846-44b6-9111-5536e39db261/resourceGroups/covid-19-rg/providers/Microsoft.Storage/storageAccounts/covidsa"
 		},
 		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
-			"value": "https://github.com/cloudboxacademy/covid19/blob/main/ecdc_data/cases_deaths.csv"
+			"value": "https://raw.githubusercontent.com/"
 		},
 		"containerUri": {
 			"value": ""
