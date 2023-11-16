@@ -19,6 +19,10 @@
 			"type": "string",
 			"defaultValue": "https://zellow777covid19dl.dfs.core.windows.net/"
 		},
+		"event trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/2e981504-a846-44b6-9111-5536e39db261/resourceGroups/covid-19-rg/providers/Microsoft.Storage/storageAccounts/covidsa"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -54,6 +58,9 @@
 					},
 					"AzureDataLakeStorageCovid19_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorageCovid19_properties_typeProperties_url')]"
+					},
+					"event trigger_properties_typeProperties_scope": {
+						"value": "[parameters('event trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
