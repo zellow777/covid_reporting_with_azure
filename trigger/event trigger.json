@@ -1,0 +1,17 @@
+{
+	"name": "event trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/population_by_age.tsv.gz",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/2e981504-a846-44b6-9111-5536e39db261/resourceGroups/covid-19-rg/providers/Microsoft.Storage/storageAccounts/covidsa",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
