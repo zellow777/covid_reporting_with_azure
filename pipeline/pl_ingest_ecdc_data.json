@@ -102,7 +102,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"relativeURL": {
-											"value": "@item().SourceRelativeURL",
+											"value": "@item().sourceRelativeURL",
 											"type": "Expression"
 										},
 										"baseURL": {
