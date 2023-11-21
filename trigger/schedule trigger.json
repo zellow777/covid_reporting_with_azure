@@ -20,7 +20,8 @@
 				"timeZone": "Central Europe Standard Time",
 				"schedule": {
 					"minutes": [
-						0
+						0,
+						30
 					],
 					"hours": [
 						6,
