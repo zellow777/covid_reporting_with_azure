@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageCovid19'"
 		},
+		"ls_zellow777covid19dl2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_zellow777covid19dl2'"
+		},
 		"AzureDataLakeStorageCovid19_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://zellow777covid19dl.dfs.core.windows.net/"
@@ -22,6 +26,10 @@
 		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_zellow777covid19dl2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://zellow777covid19dl2.dfs.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -74,6 +82,23 @@
 					"url": "[parameters('ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url')]",
 					"enableServerCertificateValidation": true,
 					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_zellow777covid19dl2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_zellow777covid19dl2_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_zellow777covid19dl2_accountKey')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -421,7 +446,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorageCovid19",
+					"referenceName": "ls_zellow777covid19dl2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -440,7 +465,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageCovid19')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_zellow777covid19dl2')]"
 			]
 		},
 		{
@@ -449,7 +474,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorageCovid19",
+					"referenceName": "ls_zellow777covid19dl2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -468,7 +493,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageCovid19')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_zellow777covid19dl2')]"
 			]
 		},
 		{
@@ -477,7 +502,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorageCovid19",
+					"referenceName": "ls_zellow777covid19dl2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -496,7 +521,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageCovid19')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_zellow777covid19dl2')]"
 			]
 		},
 		{
@@ -1341,55 +1366,6 @@
 				"[concat(variables('factoryId'), '/datasets/ds_dim_date_lookup')]",
 				"[concat(variables('factoryId'), '/datasets/ds_processed_hospital_admissions_weekly')]",
 				"[concat(variables('factoryId'), '/datasets/ds_processed_hospital_admissions_daily')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_process_hospital_admissions_data')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "df_transform_hospital_admissions",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "df_transform_hospital_admissions",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"hospitalAdmissionsSource": {},
-									"CoutrySource": {},
-									"DimDateSource": {},
-									"WeeklySink": {},
-									"DailySink": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_transform_hospital_admissions')]"
 			]
 		}
 	]

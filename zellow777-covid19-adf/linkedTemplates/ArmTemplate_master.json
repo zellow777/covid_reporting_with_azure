@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageCovid19'"
 		},
+		"ls_zellow777covid19dl2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_zellow777covid19dl2'"
+		},
 		"AzureDataLakeStorageCovid19_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://zellow777covid19dl.dfs.core.windows.net/"
@@ -22,6 +26,10 @@
 		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_zellow777covid19dl2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://zellow777covid19dl2.dfs.core.windows.net/"
 		},
 		"event trigger_properties_typeProperties_scope": {
 			"type": "string",
@@ -60,11 +68,17 @@
 					"AzureDataLakeStorageCovid19_accountKey": {
 						"value": "[parameters('AzureDataLakeStorageCovid19_accountKey')]"
 					},
+					"ls_zellow777covid19dl2_accountKey": {
+						"value": "[parameters('ls_zellow777covid19dl2_accountKey')]"
+					},
 					"AzureDataLakeStorageCovid19_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorageCovid19_properties_typeProperties_url')]"
 					},
 					"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 						"value": "[parameters('ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url')]"
+					},
+					"ls_zellow777covid19dl2_properties_typeProperties_url": {
+						"value": "[parameters('ls_zellow777covid19dl2_properties_typeProperties_url')]"
 					}
 				}
 			},

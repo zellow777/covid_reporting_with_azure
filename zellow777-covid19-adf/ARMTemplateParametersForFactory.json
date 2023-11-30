@@ -11,11 +11,17 @@
 		"AzureDataLakeStorageCovid19_accountKey": {
 			"value": ""
 		},
+		"ls_zellow777covid19dl2_accountKey": {
+			"value": ""
+		},
 		"AzureDataLakeStorageCovid19_properties_typeProperties_url": {
 			"value": "https://zellow777covid19dl.dfs.core.windows.net/"
 		},
 		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"value": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_zellow777covid19dl2_properties_typeProperties_url": {
+			"value": "https://zellow777covid19dl2.dfs.core.windows.net/"
 		},
 		"event trigger_properties_typeProperties_scope": {
 			"value": "/subscriptions/2e981504-a846-44b6-9111-5536e39db261/resourceGroups/covid-19-rg/providers/Microsoft.Storage/storageAccounts/covidsa"

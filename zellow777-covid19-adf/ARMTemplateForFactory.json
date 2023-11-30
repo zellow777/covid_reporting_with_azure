@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageCovid19'"
 		},
+		"ls_zellow777covid19dl2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_zellow777covid19dl2'"
+		},
 		"AzureDataLakeStorageCovid19_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://zellow777covid19dl.dfs.core.windows.net/"
@@ -22,6 +26,10 @@
 		"ls_http_opendata_ecdc_europa_eu_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_zellow777covid19dl2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://zellow777covid19dl2.dfs.core.windows.net/"
 		},
 		"event trigger_properties_typeProperties_scope": {
 			"type": "string",
@@ -824,7 +832,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorageCovid19",
+					"referenceName": "ls_zellow777covid19dl2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -843,7 +851,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageCovid19')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_zellow777covid19dl2')]"
 			]
 		},
 		{
@@ -852,7 +860,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorageCovid19",
+					"referenceName": "ls_zellow777covid19dl2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -871,7 +879,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageCovid19')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_zellow777covid19dl2')]"
 			]
 		},
 		{
@@ -880,7 +888,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorageCovid19",
+					"referenceName": "ls_zellow777covid19dl2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -899,7 +907,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageCovid19')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_zellow777covid19dl2')]"
 			]
 		},
 		{
@@ -1077,6 +1085,23 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_zellow777covid19dl2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_zellow777covid19dl2_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_zellow777covid19dl2_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/event trigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -1131,7 +1156,8 @@
 						"timeZone": "Central Europe Standard Time",
 						"schedule": {
 							"minutes": [
-								0
+								0,
+								30
 							],
 							"hours": [
 								6,
