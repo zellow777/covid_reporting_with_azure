@@ -2,7 +2,7 @@
 	"name": "ds_processed_hospital_admissions_weekly",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorageCovid19",
+			"referenceName": "ls_zellow777covid19dl2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
